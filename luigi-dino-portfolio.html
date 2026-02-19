@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luigi Dino | P&G Technical Program Manager - Infrastructure</title>
+    <meta name="description" content="Senior Network Project Portfolio Manager at Procter & Gamble with 6+ years delivering 500+ infrastructure projects. Specialized in network automation and platform engineering.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #003da5;
+            --secondary: #001f54;
+            --accent: #00a3e0;
+            --accent-2: #fedb00;
+            --text: #ffffff;
+            --text-dim: #b8d4f1;
+            --surface: #002868;
+            --border: rgba(0, 163, 224, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: 1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 61, 165, 0.95);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(254, 219, 0, 0.15);
+            border: 1px solid var(--accent-2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-2);
+            margin-bottom: 2rem;
+            animation: fadeSlideDown 0.8s ease-out;
+        }
+
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            animation: fadeSlideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gradient-text {
+            color: var(--accent-2);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            line-height: 1.8;
+            animation: fadeSlideUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeSlideUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-2);
+            color: var(--primary);
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(254, 219, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(254, 219, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-2);
+            background: rgba(254, 219, 0, 0.1);
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            color: var(--accent-2);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Expertise Cards */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-2);
+            box-shadow: 0 20px 50px rgba(254, 219, 0, 0.3);
+        }
+
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .expertise-card p {
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .expertise-list li::before {
+            content: '▹';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-bottom: 2rem;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-2);
+            box-shadow: 0 20px 50px rgba(254, 219, 0, 0.3);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-timeline {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .project-description {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-2);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: rgba(0, 163, 224, 0.15);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .contact-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent-2);
+            background: rgba(254, 219, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--border);
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-2);
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="grid-background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="container">
+        <nav>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()" style="position: absolute; right: 2rem;">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">Senior Network Project Portfolio Manager @ P&G</span>
+                <h1>
+                    Luigi <span class="gradient-text">Dino</span>
+                </h1>
+                <p>
+                    Technical Program Manager delivering enterprise-scale network infrastructure. 
+                    6+ years orchestrating 500+ projects with 90%+ on-time delivery. 
+                    Building and automating network operations at <strong style="color: var(--accent-2);">Procter & Gamble</strong>.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="/cdn-cgi/l/email-protection#b0dcc5d9d7d9d4d9dedf83f0d7ddd1d9dc9ed3dfdd" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="section" id="expertise">
+            <div class="section-header">
+                <span class="section-tag">Core Competencies</span>
+                <h2 class="section-title">Expertise</h2>
+                <p class="section-description">
+                    Deep technical knowledge in network infrastructure combined with strategic program management 
+                    to deliver mission-critical projects at global enterprise scale.
+                </p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🌐</div>
+                    <h3>Network Infrastructure</h3>
+                    <p>Enterprise-scale network design, deployment, and management across manufacturing plants and global office spaces.</p>
+                    <ul class="expertise-list">
+                        <li>LAN/WAN Architecture & Design</li>
+                        <li>Cisco LAN & WLAN Solutions</li>
+                        <li>Juniper Firewalls & Cisco FTDs</li>
+                        <li>Zscaler Cloud Security</li>
+                        <li>Network Build Projects (Office to Plant Scale)</li>
+                        <li>SLA Management & Monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">📋</div>
+                    <h3>Program & Portfolio Management</h3>
+                    <p>End-to-end ownership of 500+ infrastructure projects with proven track record of on-time, right-first-time delivery.</p>
+                    <ul class="expertise-list">
+                        <li>Portfolio Management & Prioritization</li>
+                        <li>Agile/Scrum (PSM I Certified)</li>
+                        <li>Stakeholder Management (VP-level)</li>
+                        <li>Risk Tracking & Mitigation</li>
+                        <li>Resource Planning & Allocation</li>
+                        <li>ServiceNow (SNOW) Workflow Management</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚡</div>
+                    <h3>Automation & AI</h3>
+                    <p>Pioneered automation initiatives to streamline workflows, improve operational efficiency, and drive significant cost savings.</p>
+                    <ul class="expertise-list">
+                        <li>Python Development & Scripting</li>
+                        <li>AI Chatbot Development (MS Copilot)</li>
+                        <li>Network Design Automation</li>
+                        <li>PowerBI & PowerApps Development</li>
+                        <li>Workflow Digitization & Process Optimization</li>
+                        <li>Platform Engineering (VueJS, Kubernetes)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <div class="section-header">
+                <span class="section-tag">Impact & Results</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    Select infrastructure programs demonstrating technical depth, strategic impact, and measurable business outcomes at Procter & Gamble.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Network BAU Portfolio</h3>
+                        </div>
+                        <div class="project-timeline">2022 - Present</div>
+                    </div>
+                    <p class="project-description">
+                        Led end-to-end delivery of 500+ network infrastructure projects spanning office expansions, distribution centers, 
+                        and full greenfield manufacturing plant deployments across global operations. Coordinated cross-functional teams including 
+                        engineering, operations, facilities, and external vendors to maintain exceptional delivery standards.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">500+</span>
+                            <span class="metric-label">Projects Delivered</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">90%+</span>
+                            <span class="metric-label">Right-First-Time Rate</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">90%+</span>
+                            <span class="metric-label">On-Time Delivery</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Global</span>
+                            <span class="metric-label">Geographic Distribution</span>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Network Design</span>
+                        <span class="tag">Project Management</span>
+                        <span class="tag">ServiceNow</span>
+                        <span class="tag">Cisco</span>
+                        <span class="tag">Portfolio Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Internal Network Portal Development</h3>
+                        </div>
+                        <div class="project-timeline">2022 - Present</div>
+                    </div>
+                    <p class="project-description">
+                        Led internal engineering team to develop and maintain company's network portal using Python, VueJS, and Kubernetes. 
+                        Successfully replaced vendor-managed solution, achieving $300K+ in annual savings. Portal serves as central hub 
+                        for network operations, automation, and reporting across global infrastructure.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$300K+</span>
+                            <span class="metric-label">Annual Savings</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Insourced</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Global</span>
+                            <span class="metric-label">User Base</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">24/7</span>
+                            <span class="metric-label">Availability</span>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">VueJS</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Platform Engineering</span>
+                        <span class="tag">Cost Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Executive Dashboards & Analytics</h3>
+                        </div>
+                        <div class="project-timeline">2022 - Present</div>
+                    </div>
+                    <p class="project-description">
+                        Developed comprehensive PowerBI dashboards and PowerApps workflow automation tools providing real-time visibility 
+                        into network project portfolio, resource utilization, and delivery metrics. Enabled VP-level decision making with 
+                        actionable insights and improved reporting transparency across stakeholder groups.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">Real-Time</span>
+                            <span class="metric-label">Data Updates</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">VP-Level</span>
+                            <span class="metric-label">Visibility</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">50%</span>
+                            <span class="metric-label">Reporting Time Saved</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Cross-Functional</span>
+                            <span class="metric-label">Stakeholder Access</span>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">PowerBI</span>
+                        <span class="tag">PowerApps</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Executive Reporting</span>
+                        <span class="tag">Microsoft 365</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2>Let's Build Something <span class="gradient-text">Together</span></h2>
+            <p>Open to discussing infrastructure programs, technical leadership opportunities, and advisory roles.</p>
+            <div class="contact-links">
+                <a href="/cdn-cgi/l/email-protection#214d5448464845484f4e1261464c40484d0f424e4c" class="contact-link">
+                    📧 Email
+                </a>
+                <a href="https://linkedin.com/in/luigi-dino-b2727327a" class="contact-link" target="_blank">
+                    💼 LinkedIn
+                </a>
+                <a href="#" class="contact-link">
+                    📄 Resume
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Luigi Dino | Technical Program Manager - Infrastructure</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Manila, Philippines</p>
+            <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-dim);">
+                Experience showcased here reflects work at <span style="color: var(--accent-2);">Procter & Gamble</span>
+            </p>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.right = '2rem';
+                navLinks.style.background = 'var(--surface)';
+                navLinks.style.padding = '1rem';
+                navLinks.style.borderRadius = '8px';
+                navLinks.style.border = '1px solid var(--border)';
+            }
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.expertise-card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+    
