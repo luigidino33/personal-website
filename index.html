@@ -1,894 +1,1383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luigi Dino | P&G Technical Program Manager - Infrastructure</title>
-    <meta name="description" content="Senior Network Project Portfolio Manager at Procter & Gamble with 6+ years delivering 500+ infrastructure projects. Specialized in network automation and platform engineering.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #003da5;
-            --secondary: #001f54;
-            --accent: #00a3e0;
-            --accent-2: #fedb00;
-            --text: #ffffff;
-            --text-dim: #b8d4f1;
-            --surface: #002868;
-            --border: rgba(0, 163, 224, 0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'IBM Plex Sans', sans-serif;
-            background: var(--primary);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background Grid */
-        .grid-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.3;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Floating orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            z-index: 1;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
-            bottom: -150px;
-            left: -150px;
-            animation-delay: -10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, -50px) scale(1.1); }
-            66% { transform: translate(-50px, 50px) scale(0.9); }
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Navigation */
-        nav {
-            padding: 2rem 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(0, 61, 165, 0.95);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding: 4rem 0;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(254, 219, 0, 0.15);
-            border: 1px solid var(--accent-2);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--accent-2);
-            margin-bottom: 2rem;
-            animation: fadeSlideDown 0.8s ease-out;
-        }
-
-        @keyframes fadeSlideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-            animation: fadeSlideUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .gradient-text {
-            color: var(--accent-2);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-dim);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            line-height: 1.8;
-            animation: fadeSlideUp 0.8s ease-out 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeSlideUp 0.8s ease-out 0.6s both;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--accent-2);
-            color: var(--primary);
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(254, 219, 0, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(254, 219, 0, 0.6);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-2);
-            background: rgba(254, 219, 0, 0.1);
-        }
-
-        /* Section */
-        .section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            font-size: 0.85rem;
-            color: var(--accent-2);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Expertise Cards */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .expertise-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent-2);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .expertise-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-2);
-            box-shadow: 0 20px 50px rgba(254, 219, 0, 0.3);
-        }
-
-        .expertise-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .expertise-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .expertise-card p {
-            color: var(--text-dim);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .expertise-list {
-            list-style: none;
-        }
-
-        .expertise-list li {
-            padding: 0.5rem 0;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .expertise-list li::before {
-            content: '▹';
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Projects Section */
-        .project-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            margin-bottom: 2rem;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-2);
-            box-shadow: 0 20px 50px rgba(254, 219, 0, 0.3);
-        }
-
-        .project-content {
-            padding: 2.5rem;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .project-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-timeline {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-        }
-
-        .project-description {
-            color: var(--text-dim);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-metrics {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .metric {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .metric-value {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-2);
-        }
-
-        .metric-label {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            padding: 0.4rem 1rem;
-            background: rgba(0, 163, 224, 0.15);
-            border: 1px solid var(--accent);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--accent);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 4rem;
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .contact-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-section p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            padding: 1rem 2rem;
-            background: transparent;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-link:hover {
-            border-color: var(--accent-2);
-            background: rgba(254, 219, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 3rem 0;
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: 2px solid var(--border);
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-section {
-                padding: 2rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-            }
-        }
-
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent-2);
-            z-index: 1000;
-            transition: width 0.1s ease;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luigi Dino — Network Infrastructure & Program Manager</title>
+  <meta name="description" content="Senior Network Project Portfolio Manager at Procter & Gamble with 6+ years delivering 500+ infrastructure projects across global operations.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0A0A0F;
+      --s1:           #121219;
+      --s2:           #1C1C28;
+      --s3:           #242433;
+      --border:       #2A2A3A;
+      --border-sub:   #1E1E2E;
+      --border-str:   #3D3D55;
+      --fg:           #EEEEF5;
+      --fg2:          #9090AA;
+      --fg3:          #55556A;
+      --accent:       #7B6EFA;
+      --accent-l:     #A99DFF;
+      --accent-d:     #5A50C8;
+      --accent-glow:  rgba(123,110,250,0.30);
+      --accent-sub:   rgba(123,110,250,0.10);
+      --teal:         #00D4AA;
+      --teal-l:       #4DFFDE;
+      --teal-glow:    rgba(0,212,170,0.25);
+      --teal-sub:     rgba(0,212,170,0.08);
+      --amber:        #F5A827;
+      --amber-l:      #FFD07A;
+      --amber-sub:    rgba(245,168,39,0.10);
+      --success:      #34D399;
+      --font-d:       'Space Grotesk', system-ui, sans-serif;
+      --font-b:       'DM Sans', system-ui, sans-serif;
+      --font-m:       'JetBrains Mono', 'Cascadia Code', monospace;
+      --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+      --max:          1200px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-b);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    ::selection { background: var(--accent-sub); color: var(--accent-l); }
+    a { color: inherit; text-decoration: none; transition: color 150ms var(--ease); }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-str); border-radius: 3px; }
+
+    /* ── Animations ── */
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes spin     { to { transform:rotate(360deg); } }
+    @keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    @keyframes float    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes glow-pulse { 0%,100%{box-shadow:0 0 16px var(--accent-glow)} 50%{box-shadow:0 0 32px rgba(123,110,250,0.5)} }
+
+    /* ── Utility ── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+    .label-upper {
+      font-family: var(--font-m);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg3);
+      margin-bottom: 10px;
+    }
+    .section-heading {
+      font-family: var(--font-d);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--fg);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-m);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .tag-violet { background: var(--accent-sub); color: var(--accent-l); border: 1px solid rgba(123,110,250,0.2); }
+    .tag-teal   { background: var(--teal-sub);   color: var(--teal);     border: 1px solid rgba(0,212,170,0.2); }
+    .tag-amber  { background: var(--amber-sub);  color: var(--amber);    border: 1px solid rgba(245,168,39,0.2); }
+    .tag-muted  { background: var(--s1);         color: var(--fg3);      border: 1px solid var(--border); }
+    .tag-green  { background: rgba(52,211,153,0.08); color: #34D399;     border: 1px solid rgba(52,211,153,0.2); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background 300ms, backdrop-filter 300ms, border-color 300ms;
+      border-bottom: 1px solid transparent;
+    }
+    #nav.scrolled {
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-color: rgba(42,42,58,0.6);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #9B8FFB, #5A50C8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(123,110,250,0.4);
+    }
+    .logo-name {
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .nav-link {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid transparent;
+      color: var(--fg2);
+      font-family: var(--font-d);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: color 150ms, border-color 150ms, font-weight 150ms;
+    }
+    .nav-link:hover { color: var(--fg); }
+    .nav-link.active { color: var(--fg); font-weight: 600; border-bottom-color: var(--accent); }
+    .nav-cta {
+      margin-left: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 150ms, box-shadow 150ms;
+    }
+    .nav-cta:hover {
+      background: var(--accent-l);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--fg2);
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(10,10,15,0.97);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 16px 32px 24px;
+      gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-link {
+      background: transparent;
+      border: none;
+      color: var(--fg2);
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 400;
+      padding: 10px 0;
+      text-align: left;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border-sub);
+      transition: color 150ms;
+    }
+    .mobile-link:last-child { border-bottom: none; }
+    .mobile-link:hover { color: var(--fg); }
+
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; align-items: center; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .blob-1 {
+      top: 18%;
+      left: 8%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(123,110,250,0.12) 0%, transparent 70%);
+      animation: float 9s ease-in-out infinite;
+    }
+    .blob-2 {
+      bottom: 18%;
+      right: 6%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+      animation: float 11s ease-in-out infinite 2s;
+    }
+    .hero-content {
+      max-width: var(--max);
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 9999px;
+      padding: 6px 16px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 700ms var(--ease) 100ms forwards;
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .badge-text {
+      font-family: var(--font-m);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--success);
+    }
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 700ms var(--ease) 200ms forwards;
+    }
+    .hero-typed { color: var(--accent); }
+    .hero-cursor {
+      display: inline-block;
+      margin-left: 2px;
+      color: var(--accent);
+      animation: blink 1s step-end infinite;
+    }
+    .hero-sub {
+      font-family: var(--font-b);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--fg2);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      opacity: 0;
+      animation: fadeUp 700ms var(--ease) 300ms forwards;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+      opacity: 0;
+      animation: fadeUp 700ms var(--ease) 400ms forwards;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-d);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 200ms var(--ease), box-shadow 200ms var(--ease), transform 200ms var(--ease);
+    }
+    .btn-primary:hover {
+      background: var(--accent-l);
+      box-shadow: 0 0 28px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      font-family: var(--font-d);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 200ms, color 200ms;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent-l);
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 700ms var(--ease) 500ms forwards;
+    }
+    .stat-item {
+      padding: 0 40px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-val {
+      font-family: var(--font-d);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-family: var(--font-b);
+      font-size: 13px;
+      color: var(--fg3);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 540px) {
+      .stat-item { padding: 16px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+    }
+
+    /* ── PROJECTS ── */
+    #projects {
+      padding: 100px 32px;
+    }
+    .projects-header {
+      margin-bottom: 56px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 6px;
+    }
+    .filter-btn {
+      font-family: var(--font-m);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 150ms;
+    }
+    .filter-btn.active {
+      background: var(--accent-sub);
+      color: var(--accent-l);
+      border: 1px solid rgba(123,110,250,0.25);
+    }
+    .filter-btn:not(.active) {
+      background: transparent;
+      color: var(--fg3);
+      border: 1px solid var(--border);
+    }
+    .filter-btn:not(.active):hover {
+      color: var(--fg2);
+      border-color: var(--border-str);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .project-card {
+      background: var(--s2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      cursor: pointer;
+      transition: border-color 250ms var(--ease), transform 250ms var(--ease), box-shadow 250ms var(--ease);
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+    }
+    .project-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .project-year {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--fg3);
+    }
+    .project-title {
+      font-family: var(--font-d);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .project-desc {
+      font-family: var(--font-b);
+      font-size: 13.5px;
+      color: var(--fg2);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .metric {
+      background: var(--s1);
+      border: 1px solid var(--border-sub);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .metric-val {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .metric-lbl {
+      font-family: var(--font-m);
+      font-size: 10px;
+      color: var(--fg3);
+      margin-top: 3px;
+    }
+    .project-stack {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 500px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 100px 32px;
+      background: var(--s1);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: start;
+      max-width: 760px;
+    }
+    .about-bio p {
+      font-family: var(--font-b);
+      font-size: 15px;
+      color: var(--fg2);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .about-tags .tag {
+      padding: 4px 10px;
+    }
+    .skills-section { }
+    .skill-row {
+      margin-bottom: 18px;
+    }
+    .skill-label-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .skill-name {
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg);
+    }
+    .skill-pct {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--fg3);
+    }
+    .skill-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 900ms var(--ease);
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 80px;
+    }
+    .timeline-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 1px solid var(--border);
+      padding-left: 32px;
+      margin-left: 8px;
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+      border: 2px solid var(--bg);
+    }
+    .tl-period {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--fg3);
+      margin-bottom: 4px;
+    }
+    .tl-company {
+      font-family: var(--font-d);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-l);
+    }
+    .tl-role {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 6px;
+    }
+    .tl-desc {
+      font-family: var(--font-b);
+      font-size: 13.5px;
+      color: var(--fg2);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .tl-item { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 100px 32px;
+    }
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .contact-header p {
+      font-family: var(--font-b);
+      font-size: 15px;
+      color: var(--fg2);
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: var(--font-d);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--fg2);
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: var(--s1);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-family: var(--font-b);
+      font-size: 14px;
+      color: var(--fg);
+      outline: none;
+      transition: border-color 200ms, box-shadow 200ms;
+    }
+    .form-select {
+      appearance: none;
+      cursor: pointer;
+    }
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--fg3); }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(123,110,250,0.12);
+    }
+    .form-submit {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-d);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 200ms, box-shadow 200ms;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .form-submit:hover {
+      background: var(--accent-l);
+      box-shadow: 0 0 28px var(--accent-glow);
+    }
+    .form-success {
+      display: none;
+      background: rgba(52,211,153,0.06);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+    }
+    .form-success.visible { display: block; }
+    .success-icon {
+      font-family: var(--font-d);
+      font-size: 32px;
+      color: var(--success);
+      margin-bottom: 12px;
+    }
+    .success-title {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--success);
+      margin-bottom: 8px;
+    }
+    .success-sub {
+      font-family: var(--font-b);
+      font-size: 14px;
+      color: var(--fg2);
+    }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--s2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      transition: border-color 200ms var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .contact-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-card-body {
+      flex: 1;
+    }
+    .contact-card-label {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--fg3);
+      letter-spacing: 0.05em;
+      margin-bottom: 3px;
+    }
+    .contact-card-value {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--fg);
+    }
+    .contact-card-arrow {
+      color: var(--fg3);
+      transition: color 200ms, transform 200ms;
+    }
+    .contact-card:hover .contact-card-arrow {
+      color: var(--accent-l);
+      transform: translateX(3px);
+    }
+
+    .contact-socials {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-d);
+      font-size: 13px;
+      color: var(--fg3);
+      transition: color 150ms;
+    }
+    .social-link:hover { color: var(--fg); }
+
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #9B8FFB, #5A50C8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-d);
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-name {
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+    .footer-copy {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--fg3);
+    }
+    .footer-loc {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--fg3);
+    }
+  </style>
 </head>
 <body>
-    <div class="scroll-progress" id="scrollProgress"></div>
-    <div class="grid-background"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
 
-    <div class="container">
-        <nav>
-            <button class="mobile-menu-toggle" onclick="toggleMenu()" style="position: absolute; right: 2rem;">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="scrollToSection('hero')">
+      <div class="logo-mark">LD</div>
+      <span class="logo-name">Luigi Dino</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="scrollToSection('hero')" data-section="hero">Home</button>
+      <button class="nav-link" onclick="scrollToSection('projects')" data-section="projects">Projects</button>
+      <button class="nav-link" onclick="scrollToSection('about')" data-section="about">About</button>
+      <button class="nav-link" onclick="scrollToSection('contact')" data-section="contact">Contact</button>
+    </div>
+    <button class="menu-toggle" onclick="toggleMobile()" aria-label="Toggle menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-link" onclick="scrollToSection('hero'); toggleMobile()">Home</button>
+    <button class="mobile-link" onclick="scrollToSection('projects'); toggleMobile()">Projects</button>
+    <button class="mobile-link" onclick="scrollToSection('about'); toggleMobile()">About</button>
+    <button class="mobile-link" onclick="scrollToSection('contact'); toggleMobile()">Contact</button>
+  </div>
+</nav>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <span class="hero-tag">Senior Network Project Portfolio Manager @ P&G</span>
-                <h1>
-                    Luigi <span class="gradient-text">Dino</span>
-                </h1>
-                <p>
-                    Technical Program Manager delivering enterprise-scale network infrastructure. 
-                    6+ years orchestrating 500+ projects with 90%+ on-time delivery. 
-                    Building and automating network operations at <strong style="color: var(--accent-2);">Procter & Gamble</strong>.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="/cdn-cgi/l/email-protection#b0dcc5d9d7d9d4d9dedf83f0d7ddd1d9dc9ed3dfdd" class="btn btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Expertise Section -->
-        <section class="section" id="expertise">
-            <div class="section-header">
-                <span class="section-tag">Core Competencies</span>
-                <h2 class="section-title">Expertise</h2>
-                <p class="section-description">
-                    Deep technical knowledge in network infrastructure combined with strategic program management 
-                    to deliver mission-critical projects at global enterprise scale.
-                </p>
-            </div>
-
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <div class="expertise-icon">🌐</div>
-                    <h3>Network Infrastructure</h3>
-                    <p>Enterprise-scale network design, deployment, and management across manufacturing plants and global office spaces.</p>
-                    <ul class="expertise-list">
-                        <li>LAN/WAN Architecture & Design</li>
-                        <li>Cisco LAN & WLAN Solutions</li>
-                        <li>Juniper Firewalls & Cisco FTDs</li>
-                        <li>Zscaler Cloud Security</li>
-                        <li>Network Build Projects (Office to Plant Scale)</li>
-                        <li>SLA Management & Monitoring</li>
-                    </ul>
-                </div>
-
-                <div class="expertise-card">
-                    <div class="expertise-icon">📋</div>
-                    <h3>Program & Portfolio Management</h3>
-                    <p>End-to-end ownership of 500+ infrastructure projects with proven track record of on-time, right-first-time delivery.</p>
-                    <ul class="expertise-list">
-                        <li>Portfolio Management & Prioritization</li>
-                        <li>Agile/Scrum (PSM I Certified)</li>
-                        <li>Stakeholder Management (VP-level)</li>
-                        <li>Risk Tracking & Mitigation</li>
-                        <li>Resource Planning & Allocation</li>
-                        <li>ServiceNow (SNOW) Workflow Management</li>
-                    </ul>
-                </div>
-
-                <div class="expertise-card">
-                    <div class="expertise-icon">⚡</div>
-                    <h3>Automation & AI</h3>
-                    <p>Pioneered automation initiatives to streamline workflows, improve operational efficiency, and drive significant cost savings.</p>
-                    <ul class="expertise-list">
-                        <li>Python Development & Scripting</li>
-                        <li>AI Chatbot Development (MS Copilot)</li>
-                        <li>Network Design Automation</li>
-                        <li>PowerBI & PowerApps Development</li>
-                        <li>Workflow Digitization & Process Optimization</li>
-                        <li>Platform Engineering (VueJS, Kubernetes)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="section" id="projects">
-            <div class="section-header">
-                <span class="section-tag">Impact & Results</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-description">
-                    Select infrastructure programs demonstrating technical depth, strategic impact, and measurable business outcomes at Procter & Gamble.
-                </p>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Network BAU Portfolio</h3>
-                        </div>
-                        <div class="project-timeline">2022 - Present</div>
-                    </div>
-                    <p class="project-description">
-                        Led end-to-end delivery of 500+ network infrastructure projects spanning office expansions, distribution centers, 
-                        and full greenfield manufacturing plant deployments across global operations. Coordinated cross-functional teams including 
-                        engineering, operations, facilities, and external vendors to maintain exceptional delivery standards.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">500+</span>
-                            <span class="metric-label">Projects Delivered</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">90%+</span>
-                            <span class="metric-label">Right-First-Time Rate</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">90%+</span>
-                            <span class="metric-label">On-Time Delivery</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">Global</span>
-                            <span class="metric-label">Geographic Distribution</span>
-                        </div>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Network Design</span>
-                        <span class="tag">Project Management</span>
-                        <span class="tag">ServiceNow</span>
-                        <span class="tag">Cisco</span>
-                        <span class="tag">Portfolio Management</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Internal Network Portal Development</h3>
-                        </div>
-                        <div class="project-timeline">2022 - Present</div>
-                    </div>
-                    <p class="project-description">
-                        Led internal engineering team to develop and maintain company's network portal using Python, VueJS, and Kubernetes. 
-                        Successfully replaced vendor-managed solution, achieving $300K+ in annual savings. Portal serves as central hub 
-                        for network operations, automation, and reporting across global infrastructure.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">$300K+</span>
-                            <span class="metric-label">Annual Savings</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">100%</span>
-                            <span class="metric-label">Insourced</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">Global</span>
-                            <span class="metric-label">User Base</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">24/7</span>
-                            <span class="metric-label">Availability</span>
-                        </div>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">VueJS</span>
-                        <span class="tag">Kubernetes</span>
-                        <span class="tag">Platform Engineering</span>
-                        <span class="tag">Cost Optimization</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Executive Dashboards & Analytics</h3>
-                        </div>
-                        <div class="project-timeline">2022 - Present</div>
-                    </div>
-                    <p class="project-description">
-                        Developed comprehensive PowerBI dashboards and PowerApps workflow automation tools providing real-time visibility 
-                        into network project portfolio, resource utilization, and delivery metrics. Enabled VP-level decision making with 
-                        actionable insights and improved reporting transparency across stakeholder groups.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">Real-Time</span>
-                            <span class="metric-label">Data Updates</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">VP-Level</span>
-                            <span class="metric-label">Visibility</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">50%</span>
-                            <span class="metric-label">Reporting Time Saved</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">Cross-Functional</span>
-                            <span class="metric-label">Stakeholder Access</span>
-                        </div>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">PowerBI</span>
-                        <span class="tag">PowerApps</span>
-                        <span class="tag">Data Visualization</span>
-                        <span class="tag">Executive Reporting</span>
-                        <span class="tag">Microsoft 365</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact-section" id="contact">
-            <h2>Let's Build Something <span class="gradient-text">Together</span></h2>
-            <p>Open to discussing infrastructure programs, technical leadership opportunities, and advisory roles.</p>
-            <div class="contact-links">
-                <a href="/cdn-cgi/l/email-protection#214d5448464845484f4e1261464c40484d0f424e4c" class="contact-link">
-                    📧 Email
-                </a>
-                <a href="https://linkedin.com/in/luigi-dino-b2727327a" class="contact-link" target="_blank">
-                    💼 LinkedIn
-                </a>
-                <a href="#" class="contact-link">
-                    📄 Resume
-                </a>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2024 Luigi Dino | Technical Program Manager - Infrastructure</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Manila, Philippines</p>
-            <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-dim);">
-                Experience showcased here reflects work at <span style="color: var(--accent-2);">Procter & Gamble</span>
-            </p>
-        </footer>
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span class="badge-text">Open to new opportunities</span>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Scroll Progress Indicator
-        window.addEventListener('scroll', () => {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const progress = (scrollTop / scrollHeight) * 100;
-            scrollProgress.style.width = progress + '%';
+    <h1 class="hero-h1">
+      Hi, I'm Luigi.<br>
+      <span class="hero-typed" id="typedText"></span><span class="hero-cursor">|</span>
+    </h1>
+
+    <p class="hero-sub">
+      Senior Network Project Portfolio Manager at P&amp;G, delivering infrastructure at global scale — 500+ projects, 90%+ on time, right first time.
+    </p>
+
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="scrollToSection('projects')">See my work</button>
+      <button class="btn-secondary" onclick="scrollToSection('contact')">Get in touch</button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-val" style="color:var(--accent)">6+</div>
+        <div class="stat-lbl">Years experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:var(--teal)">500+</div>
+        <div class="stat-lbl">Projects delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:var(--amber)">90%+</div>
+        <div class="stat-lbl">On-time delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <div class="label-upper">Selected Work</div>
+        <h2 class="section-heading">Projects</h2>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+        <button class="filter-btn" onclick="filterProjects('infra', this)">Infra</button>
+        <button class="filter-btn" onclick="filterProjects('dev', this)">Dev</button>
+        <button class="filter-btn" onclick="filterProjects('analytics', this)">Analytics</button>
+        <button class="filter-btn" onclick="filterProjects('freelance', this)">Freelance</button>
+      </div>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card reveal" data-cat="infra" data-accent="#7B6EFA">
+        <div class="project-card-top">
+          <span class="tag tag-violet">Network PM</span>
+          <span class="project-year">2022 – Present</span>
+        </div>
+        <div class="project-title">Network BAU Portfolio</div>
+        <div class="project-desc">Led delivery of office expansions, distribution centers, and greenfield manufacturing plant deployments across global P&amp;G operations.</div>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-val" style="color:var(--accent)">500+</div>
+            <div class="metric-lbl">Projects delivered</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--teal)">90%+</div>
+            <div class="metric-lbl">Right-first-time rate</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--amber)">90%+</div>
+            <div class="metric-lbl">On-time delivery</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--accent-l)">Global</div>
+            <div class="metric-lbl">Distribution</div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-muted">Network Design</span>
+          <span class="tag tag-muted">ServiceNow</span>
+          <span class="tag tag-muted">Cisco</span>
+          <span class="tag tag-muted">Portfolio Mgmt</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="dev" data-accent="#00D4AA">
+        <div class="project-card-top">
+          <span class="tag tag-teal">Platform Dev</span>
+          <span class="project-year">2022 – Present</span>
+        </div>
+        <div class="project-title">Internal Network Portal</div>
+        <div class="project-desc">Managed a team that built an in-house portal to replace a vendor-managed solution — central hub for network operations, automation, and reporting across global infrastructure.</div>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-val" style="color:var(--teal)">$300K+</div>
+            <div class="metric-lbl">Annual savings</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--accent)">100%</div>
+            <div class="metric-lbl">Insourced</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--amber)">Global</div>
+            <div class="metric-lbl">User base</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--teal)">24/7</div>
+            <div class="metric-lbl">Availability</div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-muted">Python</span>
+          <span class="tag tag-muted">VueJS</span>
+          <span class="tag tag-muted">Kubernetes</span>
+          <span class="tag tag-muted">Platform Eng</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="analytics" data-accent="#F5A827">
+        <div class="project-card-top">
+          <span class="tag tag-amber">Analytics</span>
+          <span class="project-year">2022 – Present</span>
+        </div>
+        <div class="project-title">Executive Dashboards & Analytics</div>
+        <div class="project-desc">Built comprehensive dashboards and workflow automation tools giving VP-level visibility into portfolio metrics and actionable insights for decision-making.</div>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-val" style="color:var(--amber)">50%</div>
+            <div class="metric-lbl">Reporting time saved</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--accent)">VP-level</div>
+            <div class="metric-lbl">Visibility</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--teal)">Real-time</div>
+            <div class="metric-lbl">Data updates</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val" style="color:var(--amber-l)">Cross-fn</div>
+            <div class="metric-lbl">Stakeholder access</div>
+          </div>
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-muted">PowerBI</span>
+          <span class="tag tag-muted">PowerApps</span>
+          <span class="tag tag-muted">Data Viz</span>
+          <span class="tag tag-muted">Microsoft 365</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-cat="freelance" data-accent="#34D399">
+        <div class="project-card-top">
+          <span class="tag tag-green">Freelance · Web App</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">VizMin Fuel Price</div>
+        <div class="project-desc">Crowd-sourced fuel price tracker for Visayas and Mindanao with an interactive map, regional filtering, and community-driven price reporting.</div>
+        <div class="project-stack" style="margin-bottom:12px">
+          <span class="tag tag-muted">HTML</span>
+          <span class="tag tag-muted">JavaScript</span>
+          <span class="tag tag-muted">Vercel</span>
+        </div>
+        <a href="https://visminfuel.com" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-m);font-size:11px;color:#34D399;transition:opacity 150ms;"
+           onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          visminfuel.com
+        </a>
+      </div>
+
+      <div class="project-card reveal" data-cat="freelance" data-accent="#34D399">
+        <div class="project-card-top">
+          <span class="tag tag-green">Freelance · Tool</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">YGO TCG PH Swiss Maker</div>
+        <div class="project-desc">Swiss tournament pairing generator for the Yu-Gi-Oh TCG Philippines community — automates round pairings and standings for local events.</div>
+        <div class="project-stack" style="margin-bottom:12px">
+          <span class="tag tag-muted">TypeScript</span>
+          <span class="tag tag-muted">Python</span>
+          <span class="tag tag-muted">Vercel</span>
+        </div>
+        <a href="https://ygo-tcg-ph-swiss-maker.vercel.app" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-m);font-size:11px;color:#34D399;transition:opacity 150ms;"
+           onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          ygo-tcg-ph-swiss-maker.vercel.app
+        </a>
+      </div>
+
+      <div class="project-card reveal" data-cat="freelance" data-accent="#34D399">
+        <div class="project-card-top">
+          <span class="tag tag-green">Freelance · Web</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">Three Fourteen</div>
+        <div class="project-desc">Marketing website for Three Fourteen Apartment Leasing — modern studio, 1BR, and 2BR apartments in Metro Manila. Clean, conversion-focused design.</div>
+        <div class="project-stack" style="margin-bottom:12px">
+          <span class="tag tag-muted">HTML</span>
+          <span class="tag tag-muted">CSS</span>
+          <span class="tag tag-muted">Vercel</span>
+        </div>
+        <a href="https://three-fourteen.vercel.app" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-m);font-size:11px;color:#34D399;transition:opacity 150ms;"
+           onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          three-fourteen.vercel.app
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Bio -->
+      <div class="reveal">
+        <div class="label-upper">About me</div>
+        <h2 class="section-heading" style="margin-bottom:24px">The person behind the projects</h2>
+        <div class="about-bio">
+          <p>Based in Manila, Philippines, working globally. I bridge the gap between business goals and technical execution — leading enterprise network infrastructure projects and building automation tools that eliminate manual work at scale.</p>
+          <p>At P&amp;G, I manage a portfolio of 500+ network infrastructure projects spanning offices, distribution centers, and manufacturing plants across global operations. I'm equally comfortable deep in a network design review and writing Python automation scripts.</p>
+          <p>That dual perspective — engineering depth and program management breadth — is my edge.</p>
+        </div>
+        <div class="about-tags">
+          <span class="tag tag-violet">LAN/WAN Architecture</span>
+          <span class="tag tag-violet">Cisco</span>
+          <span class="tag tag-teal">Python</span>
+          <span class="tag tag-teal">VueJS</span>
+          <span class="tag tag-teal">Kubernetes</span>
+          <span class="tag tag-amber">PowerBI</span>
+          <span class="tag tag-amber">Agile / Scrum</span>
+          <span class="tag tag-muted">Zscaler</span>
+          <span class="tag tag-muted">Juniper</span>
+          <span class="tag tag-muted">ServiceNow</span>
+          <span class="tag tag-muted">PSM I</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline reveal">
+      <div class="label-upper" style="margin-bottom:32px">Experience</div>
+      <div class="timeline-items">
+        <div class="tl-item">
+          <div>
+            <div class="tl-period">2022 – Present</div>
+            <div class="tl-company">Procter & Gamble</div>
+          </div>
+          <div>
+            <div class="tl-role">Senior Network Project Portfolio Manager</div>
+            <div class="tl-desc">Leading delivery of enterprise network infrastructure across global P&amp;G operations — offices, distribution centers, and greenfield manufacturing plants. Built automation tools and executive dashboards that transformed how the team operates.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div>
+            <div class="tl-period">2+ years</div>
+            <div class="tl-company">Procter & Gamble</div>
+          </div>
+          <div>
+            <div class="tl-role">Network Engineer</div>
+            <div class="tl-desc">Hands-on experience in LAN/WAN architecture, Cisco and Juniper network deployments, and IT operations — managing day-to-day infrastructure reliability, incident response, and network performance. Built the technical foundation that informs everything I do at P&amp;G today.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-header reveal">
+      <div class="label-upper" style="text-align:center">Get in touch</div>
+      <h2 class="section-heading" style="text-align:center">Let's work together</h2>
+      <p>Available for consulting engagements, network infrastructure programs, and automation projects. Based in Manila, working globally.</p>
+    </div>
+
+    <div class="reveal" style="display:flex; flex-direction:column; gap:12px;">
+      <a href="mailto:luigidino3@gmail.com" class="contact-card">
+        <div class="contact-card-icon" style="background:var(--accent-sub); color:var(--accent-l);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">luigidino3@gmail.com</div>
+        </div>
+        <div class="contact-card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a href="https://linkedin.com/in/luigi-dino-b2727327a" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-card-icon" style="background:var(--teal-sub); color:var(--teal);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">linkedin.com/in/luigi-dino-b2727327a</div>
+        </div>
+        <div class="contact-card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a href="https://github.com/luigidino33" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-card-icon" style="background:var(--amber-sub); color:var(--amber);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <div class="contact-card-label">GitHub</div>
+          <div class="contact-card-value">github.com/luigidino33</div>
+        </div>
+        <div class="contact-card-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <div class="footer-logo-mark">LD</div>
+    <span class="footer-name">Luigi Dino</span>
+  </div>
+  <div class="footer-copy">© 2026 · Built with precision</div>
+  <div class="footer-loc">Manila, Philippines · Remote</div>
+</footer>
+
+<script>
+  /* ── Nav scroll state ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    updateActiveNav();
+  });
+
+  function updateActiveNav() {
+    const y = window.scrollY + 80;
+    const sections = ['contact','about','projects','hero'];
+    let active = 'hero';
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && y >= el.offsetTop) { active = id; break; }
+    }
+    document.querySelectorAll('.nav-link').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.section === active);
+    });
+  }
+
+  /* ── Smooth scroll ── */
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (id === 'hero') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ── Mobile menu ── */
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* ── Typing effect ── */
+  const phrases = ['Network Infrastructure Expert.', 'Program Manager.', 'Automation Builder.'];
+  let phraseIdx = 0, charIdx = 0, deleting = false;
+  const typedEl = document.getElementById('typedText');
+
+  function type() {
+    const full = phrases[phraseIdx];
+    if (!deleting) {
+      typedEl.textContent = full.slice(0, ++charIdx);
+      if (charIdx === full.length) { deleting = true; setTimeout(type, 1800); return; }
+      setTimeout(type, 60);
+    } else {
+      typedEl.textContent = full.slice(0, --charIdx);
+      if (charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; }
+      setTimeout(type, 35);
+    }
+  }
+  setTimeout(type, 800);
+
+  /* ── Scroll reveal ── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ── Skill bar animation ── */
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.dataset.pct + '%';
         });
+        skillObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  const skillSection = document.getElementById('skillsSection');
+  if (skillSection) skillObserver.observe(skillSection);
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+  /* ── Project card hover accent ── */
+  document.querySelectorAll('.project-card').forEach(card => {
+    const accent = card.dataset.accent || 'var(--accent)';
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = accent;
+      card.style.boxShadow = `0 12px 40px rgba(0,0,0,0.4), 0 0 20px ${accent}33`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'var(--border)';
+      card.style.boxShadow = '';
+    });
+  });
 
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.right = '2rem';
-                navLinks.style.background = 'var(--surface)';
-                navLinks.style.padding = '1rem';
-                navLinks.style.borderRadius = '8px';
-                navLinks.style.border = '1px solid var(--border)';
-            }
-        }
+  /* ── Filter ── */
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = show ? '' : 'none';
+    });
+  }
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  /* ── Contact form ── */
+  function submitForm() {
+    const name    = document.getElementById('formName').value.trim();
+    const email   = document.getElementById('formEmail').value.trim();
+    const subject = document.getElementById('formSubject').value;
+    const message = document.getElementById('formMessage').value.trim();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    const body = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`;
+    const mailto = `mailto:luigidino3@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio inquiry')}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
 
-        // Observe all cards
-        document.querySelectorAll('.expertise-card, .project-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-    
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('visible');
+  }
+</script>
+</body>
+</html>
